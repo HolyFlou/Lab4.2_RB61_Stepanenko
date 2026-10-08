@@ -1,5 +1,6 @@
 #ifndef FUNCS_H
 #define FUNCS_H
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -14,7 +15,7 @@
  *
  * @return Вказівник на виділену двовимірну матрицю (int**), або NULL у разі помилки виділення пам'яті.
  */
-int** memory_аllocation (int rows, int cols);
+int** memory_allocation(int rows, int cols);
 
 /**
  * @brief Звільняє динамічно виділену пам'ять двовимірної матриці.
@@ -25,12 +26,12 @@ int** memory_аllocation (int rows, int cols);
  * @param matrix Вказівник на двовимірну матрицю, яку потрібно очистити.
  * @param rows   Кількість рядків у матриці.
  */
-void clearMemory (int ** matrix, int rows);
+void clearMemory(int** matrix, int rows);
 
 /**
- * @brief Знаходить максимальний та мінімальний елементи у двовимірній матриці.
+ * @brief Знаходить максимальний та мінімальний елементи під головною діагоналю двовимірної матриці.
  *
- * @details Проходить по всіх елементах матриці для визначення та виведення 
+ * @details Проходить по всіх елементах під головною діагоналю для визначення
  * найбільшого й найменшого значень за допомогою вказівників.
  *
  * @param A     Вказівник на двовимірну матрицю.
@@ -38,7 +39,7 @@ void clearMemory (int ** matrix, int rows);
  * @param max_a Вказівник для збереження знайденого максимального значення.
  * @param min_a Вказівник для збереження знайденого мінімального значення.
  */
-void max_min (int** A, int r_a, int* max_a , int* min_a);
+void max_min(int** A, int r_a, int* max_a, int* min_a);
 
 /**
  * @brief Транспонує задану двовимірну матрицю.
@@ -48,14 +49,14 @@ void max_min (int** A, int r_a, int* max_a , int* min_a);
  *
  * @param B   Вказівник на вихідну двовимірну матрицю.
  * @param r_b Кількість рядків у матриці B.
- * @param m_b Кількість стовпців у матриці B.
+ * @param c_b Кількість стовпців у матриці B.
  *
- * @return Вказівник на новостворену транспоновану матрицю.
+ * @return Вказівник на новостворену транспоновану матрицю або NULL у разі помилки.
  */
-int** transpose (int ** B, int r_b, int m_b);
+int** transpose(int** B, int r_b, int c_b);
 
 /**
- * @brief Множить дві матриці.
+ * @brief Множить дві матриці (B * A).
  *
  * @details Виконує множення матриці B на матрицю A 
  * відповідно до правил лінійної алгебри, виділяючи пам'ять для результуючої матриці добутку.
@@ -65,9 +66,10 @@ int** transpose (int ** B, int r_b, int m_b);
  * @param c_b Кількість стовпців у матриці B.
  * @param A   Вказівник на другу двовимірну матрицю.
  * @param r_a Кількість рядків у матриці A.
+ * @param c_a Кількість стовпців у матриці A.
  *
- * @return Вказівник на новостворену результуючу матрицю.
+ * @return Вказівник на новостворену результуючу матрицю або NULL у разі помилки.
  */
-int** mult_a_b ( int ** B, int r_b, int c_b, int ** A, int r_a );
+int** mult_a_b(int** B, int r_b, int c_b, int** A, int r_a, int c_a);
 
 #endif // FUNCS_H
